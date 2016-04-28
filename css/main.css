@@ -1,0 +1,46 @@
+html, body {
+	height: 100%;
+/*	background-color: black;
+	font-family: "Courier";
+	color: lime;
+*/	overflow: hidden;
+}
+
+/*#info {
+	width: 70%;
+	margin: 0 auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 40pt;
+}
+
+h2 {
+	font-size: 16pt;
+	margin-bottom: 50px;
+	padding-left: 100px;
+}
+
+ul {
+	list-style: none;
+	font-size: 16pt;
+	line-height: 2;
+	width: 50%;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+li {
+	padding-left: 100px;
+}
+
+li span:hover {
+	background: lime;
+	color: black;
+}
+
+#information {
+	float: left;
+}*/
