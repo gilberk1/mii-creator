@@ -6,10 +6,14 @@ $(document).ready(function() {
   	url: url,
     success: function(res) {
   		res.forEach(function(person){
-        $('#people').append("<li class = 'person-name'><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>" );
+        $('#people').append("<li class = 'person-name'><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>");
       });
       $('.person-id').on("click", function(){
           personId = $(this).data('id');
+          $('#instructions').css({display: "none"});
+          $('#information').css({display: "block"});
+          $('#new-person').css({display: "none"});
+
           $.ajax({
             url: url + "/" + personId,
             success: function(res) {
@@ -18,20 +22,24 @@ $(document).ready(function() {
               var state = (res.address).split(', ')[2];
               var zip = (res.address).split(', ')[3];
 
+              $('#mii').attr("src", res.picture);
               $('#name').text("Name: " + res.name);
               $('#age').text("Age: " + res.age);
               $('#eyeColor').text("Eye Color: " + res.eyeColor);
               $('#gender').text("Gender: " + res.gender);
               $('#email').text("Email: " + res.email);
               $('#phone').text("Phone: " + res.phone);
-              $('#address').html("Address: <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                  + address
-                                  + "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                  + city + ", " + state + ", " + zip);
+              $('#address').html("Address: <br/>" + address + "<br/>" + city + ", " + state + ", " + zip);
             }
           });
   		});
     }
+  });
+  $('#create-new').on("click", function() {
+    $('#instructions').css({display: "none"});
+    $('#information').css({display: "none"});
+    $('#new-person').css({display: "block"});
+    $('#post-person').css({display: "block"});
   });
   $('#post-person').on("click", function() {
       var person = {};
@@ -47,14 +55,26 @@ $(document).ready(function() {
                         + $('#new-state').val() + ", "
                         + $('#new-zipCode').val();
 
-      $.ajax({
-        method: "POST",
-        url: url,
-        data: person,
-        success: function (res) {
-            console.log(res)
-        }
-      });
+      if(person.name != "" &&
+          person.age != "" &&
+          person.eyeColor != "" &&
+          person.gender != "" &&
+          person.email != "" &&
+          person.phone != "" &&
+          person.address != "") {
+
+          $.ajax({
+          method: "POST",
+          url: url,
+          data: person,
+          success: function (res) {
+            location.reload();
+          }
+        });
+      }
+      else {
+        $('#error').css({display: "block"});
+      }
   });
   $('#patch-person').on("click", function() {
       var person = {};

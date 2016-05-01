@@ -6,9 +6,15 @@
 		<script type = "text/javascript" src = "js/main.js"></script>
 	</head>
 	<body>
-		<ul id = "people"></ul>
-		<div id = "info">
+		<div id = "header">
+			<a href = "index.html"><img id = "logo" src = "images/nintendo_mii.png"></a>
+		</div>
+		<div id = "full-body">
+			<div id = "create-new">Create New Mii</div>
+			<ul id = "people"></ul>
+			<div id = "instructions">Create a new Mii or see the existing Mii's.</div>
 			<ul id = "information">
+				<img id = "mii">
 				<li id = "name"></li>
 				<li id = "age"></li>
 				<li id = "eyeColor"></li>
@@ -17,20 +23,23 @@
 				<li id = "phone"></li>
 				<li id = "address"></li>
 			</ul>
+			<form id = "new-person">
+				<div id = "create-new-mii">Create New Mii</div>
+				<div class = "category">Name: <input type = "text" name = "name" id = "new-name" placeholder = "name"></input></div><br/>
+				<div class = "category">Age: <input type = "text" name = "age" id = "new-age" placeholder = "age"></input></div><br/>
+				<div class = "category">Eye Color: <input type = "text" name = "eyeColor" id = "new-eyeColor" placeholder = "eye color"></input></div><br/>
+				<div class = "category">Gender: <input type = "text" name = "gender" id = "new-gender" placeholder = "gender"></input></div><br/>
+				<div class = "category">Email: <input type = "text" name = "email" id = "new-email" placeholder = "email"></input></div><br/>
+				<div class = "category">Phone: <input type = "text" name = "phone" id = "new-phone" placeholder = "phone"></input></div><br/>
+				<div class = "category">Address: <input type = "text" name = "address" id = "new-address" placeholder = "address"></input></div><br/>
+				<div class = "category">City: <input type = "text" name = "city" id = "new-city" placeholder = "city"></input></div><br/>
+				<div class = "category">State: <input type = "text" name = "state" id = "new-state" placeholder = "state"></input></div><br/>
+				<div class = "category">Zip Code: <input type = "text" name = "zipCode" id = "new-zipCode" placeholder = "zip code"></input></div><br/>
+			</form>
+			<button type = "submit" id = "post-person">Create</button>
+			<div id = "error">Please fill in all the fields above.</div>
 		</div>
-		<form id = "new-person">
-			<input type = "text" name = "name" id = "new-name" placeholder = "name"></input>
-			<input type = "text" name = "age" id = "new-age" placeholder = "age"></input>
-			<input type = "text" name = "eyeColor" id = "new-eyeColor" placeholder = "eye color"></input>
-			<input type = "text" name = "gender" id = "new-gender" placeholder = "gender"></input>
-			<input type = "text" name = "email" id = "new-email" placeholder = "email"></input>
-			<input type = "text" name = "phone" id = "new-phone" placeholder = "phone"></input>
-			<input type = "text" name = "address" id = "new-address" placeholder = "address"></input>
-			<input type = "text" name = "city" id = "new-city" placeholder = "city"></input>
-			<input type = "text" name = "state" id = "new-state" placeholder = "state"></input>
-			<input type = "text" name = "zipCode" id = "new-zipCode" placeholder = "zip code"></input>
-		</form>
-		<button type = "submit" id = "post-person">Post Person!</button>
+		<!-- 
 		<form id = "edit-person">
 			<input type = "text" name = "name" id = "edit-name" placeholder = "name"></input>
 			<input type = "text" name = "age" id = "edit-age" placeholder = "age"></input>
@@ -47,6 +56,6 @@
 		<form id = "remove-person">
 			<input type = "text" name = "name" id = "delete-name" placeholder = "name"></input>
 		</form>
-		<button type = "submit" id = "delete-person">Delete Person!</button>
+		<button type = "submit" id = "delete-person">Delete Person!</button> -->
 	</body>
 </html>
