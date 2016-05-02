@@ -13,6 +13,8 @@
 			<div id = "create-new">Create New Mii</div>
 			<ul id = "people"></ul>
 			<div id = "instructions">Create a new Mii or see the existing Mii's.</div>
+			<button type = "submit" id = "edit">Edit</button>
+			<button type = "submit" id = "delete">Delete</button><br/>
 			<ul id = "information">
 				<img id = "mii">
 				<li id = "name"></li>
@@ -25,6 +27,18 @@
 			</ul>
 			<form id = "new-person">
 				<div id = "create-new-mii">Create New Mii</div>
+				<div class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="picture" value="images/male1.png"><img id="options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/male5.png"><img id="options" src="images/male5.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female1.png"><img id="options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female2.png"><img id="options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female5.png"><img id="options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
 				<div class = "category">Name: <input type = "text" name = "name" id = "new-name" placeholder = "name"></input></div><br/>
 				<div class = "category">Age: <input type = "text" name = "age" id = "new-age" placeholder = "age"></input></div><br/>
 				<div class = "category">Eye Color: <input type = "text" name = "eyeColor" id = "new-eyeColor" placeholder = "eye color"></input></div><br/>
@@ -38,24 +52,36 @@
 			</form>
 			<button type = "submit" id = "post-person">Create</button>
 			<div id = "error">Please fill in all the fields above.</div>
+			<form id = "edit-person">
+				<div id = "edit-mii">Edit Mii</div>
+				<div class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male1.png"><img id="edit-options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male5.png"><img id="edit-options" src="images/male5.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female1.png"><img id="edit-options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female2.png"><img id="edit-options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female5.png"><img id="edit-options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
+				<div class = "category">Name: <input type = "text" name = "name" id = "edit-name" placeholder = "name"></input></div>
+				<div class = "category">Age: <input type = "text" name = "age" id = "edit-age" placeholder = "age"></input></div>
+				<div class = "category">Eye Color: <input type = "text" name = "eyeColor" id = "edit-eyeColor" placeholder = "eye color"></input></div>
+				<div class = "category">Gender: <input type = "text" name = "gender" id = "edit-gender" placeholder = "gender"></input></div>
+				<div class = "category">Email: <input type = "text" name = "email" id = "edit-email" placeholder = "email"></input></div>
+				<div class = "category">Phone: <input type = "text" name = "phone" id = "edit-phone" placeholder = "phone"></input></div>
+				<div class = "category">Address: <input type = "text" name = "address" id = "edit-address" placeholder = "address"></input></div>
+				<div class = "category">City: <input type = "text" name = "city" id = "edit-city" placeholder = "city"></input></div>
+				<div class = "category">State: <input type = "text" name = "state" id = "edit-state" placeholder = "state"></input></div>
+				<div class = "category">Zip Code: <input type = "text" name = "zipCode" id = "edit-zipCode" placeholder = "zip code"></input></div>
+			</form>
+			<button type = "submit" id = "patch-person">Save</button>
+			<div id = "remove-person">Are you sure you would like to delete this person?
+				<button type = "submit" id = "undo">No</button>
+				<button type = "submit" id = "delete-person">Yes</button>
+			</div>
 		</div>
-		<!-- 
-		<form id = "edit-person">
-			<input type = "text" name = "name" id = "edit-name" placeholder = "name"></input>
-			<input type = "text" name = "age" id = "edit-age" placeholder = "age"></input>
-			<input type = "text" name = "eyeColor" id = "edit-eyeColor" placeholder = "eye color"></input>
-			<input type = "text" name = "gender" id = "edit-gender" placeholder = "gender"></input>
-			<input type = "text" name = "email" id = "edit-email" placeholder = "email"></input>
-			<input type = "text" name = "phone" id = "edit-phone" placeholder = "phone"></input>
-			<input type = "text" name = "address" id = "edit-address" placeholder = "address"></input>
-			<input type = "text" name = "city" id = "edit-city" placeholder = "city"></input>
-			<input type = "text" name = "state" id = "edit-state" placeholder = "state"></input>
-			<input type = "text" name = "zipCode" id = "edit-zipCode" placeholder = "zip code"></input>
-		</form>
-		<button type = "submit" id = "patch-person">Patch Person!</button>
-		<form id = "remove-person">
-			<input type = "text" name = "name" id = "delete-name" placeholder = "name"></input>
-		</form>
-		<button type = "submit" id = "delete-person">Delete Person!</button> -->
 	</body>
 </html>
