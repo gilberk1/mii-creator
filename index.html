@@ -8,11 +8,14 @@
 	<body>
 		<div id = "header">
 			<a href = "index.html"><img id = "logo" src = "images/nintendo_mii.png"></a>
+			<img id="hamburger" src="images/Hamburger_icon.png">
+		</div>
+		<div id = "navigation">
+			<div id = "create-new"><img id = "add" src = "images/add.png">Create New Mii</div>
+			<ul id = "people"></ul>
 		</div>
 		<div id = "full-body">
-			<div id = "create-new">Create New Mii</div>
-			<ul id = "people"></ul>
-			<div id = "instructions">Create a new Mii or see the existing Mii's.</div>
+			<div id = "instructions">Click menu to create a new Mii or see the existing Mii's.</div>
 			<button type = "submit" id = "edit">Edit</button>
 			<button type = "submit" id = "delete">Delete</button><br/>
 			<ul id = "information">
@@ -25,15 +28,46 @@
 				<li id = "phone"></li>
 				<li id = "address"></li>
 			</ul>
+			<div id = "create-new-mii">Create New Mii</div>
+			<div id = "error">Please fill in all the fields below.</div>
 			<form id = "new-person">
-				<div id = "create-new-mii">Create New Mii</div>
-				<div class = "category">Picture:
+				<div id = "picture1" class = "category">Picture:
 					<center><table>
 			            <tr>
 			              <td valign=top><input type="radio" name="picture" value="images/male1.png"><img id="options" src="images/male1.png"></td>
 			              <td valign=top><input type="radio" name="picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
 			              <td valign=top><input type="radio" name="picture" value="images/male5.png"><img id="options" src="images/male5.png"></td>
 			              <td valign=top><input type="radio" name="picture" value="images/female1.png"><img id="options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female2.png"><img id="options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female5.png"><img id="options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
+				<div id = "picture2" class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="picture" value="images/male1.png"><img id="options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/male5.png"><img id="options" src="images/male5.png"></td>
+			            </tr>
+			            <tr>
+			              <td valign=top><input type="radio" name="picture" value="images/female1.png"><img id="options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female2.png"><img id="options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female5.png"><img id="options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
+				<div id = "picture3" class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="picture" value="images/male1.png"><img id="options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			            </tr>
+			            <tr>
+			              <td valign=top><input type="radio" name="picture" value="images/male5.png"><img id="options" src="images/male5.png"></td>
+			              <td valign=top><input type="radio" name="picture" value="images/female1.png"><img id="options" src="images/female1.png"></td>
+			            </tr>
+			            <tr>
 			              <td valign=top><input type="radio" name="picture" value="images/female2.png"><img id="options" src="images/female2.png"></td>
 			              <td valign=top><input type="radio" name="picture" value="images/female5.png"><img id="options" src="images/female5.png"></td>
 			            </tr>
@@ -51,16 +85,45 @@
 				<div class = "category">Zip Code: <input type = "text" name = "zipCode" id = "new-zipCode" placeholder = "zip code"></input></div><br/>
 			</form>
 			<button type = "submit" id = "post-person">Create</button>
-			<div id = "error">Please fill in all the fields above.</div>
 			<form id = "edit-person">
 				<div id = "edit-mii">Edit Mii</div>
-				<div class = "category">Picture:
+				<div id = "picture4" class = "category">Picture:
 					<center><table>
 			            <tr>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/male1.png"><img id="edit-options" src="images/male1.png"></td>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/male5.png"><img id="edit-options" src="images/male5.png"></td>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/female1.png"><img id="edit-options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female2.png"><img id="edit-options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female5.png"><img id="edit-options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
+				<div id = "picture5" class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male1.png"><img id="edit-options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male5.png"><img id="edit-options" src="images/male5.png"></td>
+			            </tr>
+			            <tr>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female1.png"><img id="edit-options" src="images/female1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female2.png"><img id="edit-options" src="images/female2.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female5.png"><img id="edit-options" src="images/female5.png"></td>
+			            </tr>
+		          	</table></center>
+				</div>
+				<div id = "picture6" class = "category">Picture:
+					<center><table>
+			            <tr>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male1.png"><img id="edit-options" src="images/male1.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male2.png"><img id="options" src="images/male2.png"></td>
+			            </tr>
+			            <tr>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/male5.png"><img id="edit-options" src="images/male5.png"></td>
+			              <td valign=top><input type="radio" name="edit-picture" value="images/female1.png"><img id="edit-options" src="images/female1.png"></td>
+			            </tr>
+			            <tr>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/female2.png"><img id="edit-options" src="images/female2.png"></td>
 			              <td valign=top><input type="radio" name="edit-picture" value="images/female5.png"><img id="edit-options" src="images/female5.png"></td>
 			            </tr>

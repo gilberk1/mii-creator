@@ -1,15 +1,42 @@
 var url = "https://fake-people.benspoon.com/2d8c35ce/people";
 
 $(document).ready(function() {
+  $('#hamburger').on("click", function() {
+    if(!($('#navigation')).hasClass('show')) {
+      $('#navigation').addClass('show');
+      $('#navigation').removeClass('hide');
+      $('#full-body').css({display: "none"});
+    }
+    else {
+      $('#navigation').removeClass('show');
+      $('#navigation').addClass('hide');
+      $('#full-body').css({display: "block"});
+    }
+  });
+  $('#create-new').on("click", function() {
+    $('#navigation').removeClass('show');
+    $('#navigation').addClass('hide');
+    $('#full-body').css({display: "block"});
+  });
+  $("#options").on("click", function(){
+    $(this).next("input[type=radio]").attr("checked", true);
+  });
   $.ajax({
   	url: url,
     success: function(res) {
   		res.forEach(function(person){
-        $('#people').append("<li class = 'person-name'><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>");
+        $('#people').append("<li class = 'person-name'><img class = 'person-picture' src = '" + person.picture + "'/><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>");
       });
       $('.person-id').on("click", function(){
           personId = $(this).data('id');
+                    
+          $('#navigation').removeClass('show');
+          $('#navigation').addClass('hide');
+          $('#full-body').css({display: "block"});
+          
           $('#instructions').css({display: "none"});
+          $('#edit-mii').css({display: "none"});
+          $('#create-new-mii').css({display: "none"});
           $('#edit').css({display: "block"});
           $('#delete').css({display: "block"});
           $('#information').css({display: "block"});
@@ -41,6 +68,8 @@ $(document).ready(function() {
 
               $('#edit').on("click", function() {
                 $('#instructions').css({display: "none"});
+                $('#edit-mii').css({display: "block"});
+                $('#create-new-mii').css({display: "none"});
                 $('#edit').css({display: "none"});
                 $('#delete').css({display: "none"});
                 $('#information').css({display: "none"});
@@ -96,6 +125,8 @@ $(document).ready(function() {
               });
               $('#delete').on("click", function() {
                 $('#instructions').css({display: "none"});
+                $('#edit-mii').css({display: "none"});
+                $('#create-new-mii').css({display: "none"});
                 $('#edit').css({display: "none"});
                 $('#delete').css({display: "none"});
                 $('#information').css({display: "none"});
@@ -110,6 +141,8 @@ $(document).ready(function() {
 
                 $('#undo').on("click", function() {
                   $('#instructions').css({display: "none"});
+                  $('#edit-mii').css({display: "none"});
+                  $('#create-new-mii').css({display: "none"});
                   $('#edit').css({display: "block"});
                   $('#delete').css({display: "block"});
                   $('#information').css({display: "block"});
@@ -141,6 +174,7 @@ $(document).ready(function() {
   });
   $('#create-new').on("click", function() {
     $('#instructions').css({display: "none"});
+    $('#create-new-mii').css({display: "block"});
     $('#edit').css({display: "none"});
     $('#delete').css({display: "none"});
     $('#information').css({display: "none"});
@@ -149,6 +183,10 @@ $(document).ready(function() {
     $('#error').css({display: "none"});
     $('#edit-person').css({display: "none"});
     $('#patch-person').css({display: "none"});
+    $('#remove-person').css({display: "none"});
+    $('#undo').css({display: "none"});
+    $('#delete-person').css({display: "none"});
+
   });
   $('#post-person').on("click", function() {
     var person = {};
