@@ -332,12 +332,12 @@ table {
 
 @media(max-width: 700px) {
 	#edit {
-		width: 30%;
+		width: 40%;
 		margin-top: 3%;
 	}
 
 	#delete {
-		width: 30%;
+		width: 40%;
 		margin-top: 3%;
 	}
 }
