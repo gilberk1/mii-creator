@@ -58,13 +58,13 @@ $(document).ready(function() {
               var zip = (res.address).split(', ')[3];
 
               $('#mii').attr("src", res.picture);
-              $('#name').text("Name: " + res.name);
-              $('#age').text("Age: " + res.age);
-              $('#eyeColor').text("Eye Color: " + res.eyeColor);
-              $('#gender').text("Gender: " + res.gender);
-              $('#email').text("Email: " + res.email);
-              $('#phone').text("Phone: " + res.phone);
-              $('#address').html("Address: <br/>" + address + "<br/>" + city + ", " + state + ", " + zip);
+              $('#name').text(res.name);
+              $('#age').text(res.age);
+              $('#eyeColor').text(res.eyeColor + " eyes");
+              $('#gender').text(res.gender);
+              $('#email').text(res.email);
+              $('#phone').text(res.phone);
+              $('#address').html(address + "<br/>" + city + ", " + state + ", " + zip);
 
               $('#edit').on("click", function() {
                 $('#instructions').css({display: "none"});
