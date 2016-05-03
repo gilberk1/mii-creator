@@ -15,7 +15,7 @@ html, body {
 
 #header {
 	width: 100%;
-	height: 10%;
+	height: 8%;
 	background-color: white;
 }
 
@@ -148,7 +148,7 @@ li.person-name {
 
 ul#information {
 	list-style: none;
-	font-size: 14pt;
+	font-size: 10pt;
 	line-height: 1.5;
 	font-family: "Nintender";
 	width: 100%;
