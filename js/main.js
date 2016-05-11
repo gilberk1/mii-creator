@@ -1,4 +1,4 @@
-var url = "https://fake-people.benspoon.com/2d8c35ce/people";
+var url = "http://fake-people.benspoon.com/2d8c35ce/people";
 
 $(document).ready(function() {
   $('#hamburger').on("click", function() {
