@@ -1,53 +1,101 @@
 var url = "http://fake-people.benspoon.com/2d8c35ce/people";
 
-$(document).ready(function() {
-  $('#hamburger').on("click", function() {
-    if(!($('#navigation')).hasClass('show')) {
-      $('#navigation').addClass('show');
-      $('#navigation').removeClass('hide');
-      $('#full-body').css({display: "none"});
-    }
-    else {
-      $('#navigation').removeClass('show');
-      $('#navigation').addClass('hide');
-      $('#full-body').css({display: "block"});
-    }
-  });
-  $('#create-new').on("click", function() {
+/* Function shows and hides the navigation in the hamburger menu */
+
+function navigation() {
+  if(!($('#navigation')).hasClass('show')) {
+    $('#navigation').addClass('show');
+    $('#navigation').removeClass('hide');
+    $('#full-body').css({display: "none"});
+  }
+  else {
     $('#navigation').removeClass('show');
     $('#navigation').addClass('hide');
     $('#full-body').css({display: "block"});
-  });
-  $("#options").on("click", function(){
-    $(this).next("input[type=radio]").attr("checked", true);
-  });
+  }
+}
+
+/* Function shows the Create New Mii Form to fill out */
+
+function createNew() {
+  $('#navigation').removeClass('show');
+  $('#navigation').addClass('hide');
+  $('#full-body').css({display: "block"});
+}
+
+/* Function selects one avatar for the Mii */
+
+function avatarOptions() {
+  $(this).next("input[type=radio]").attr("checked", true);
+}
+
+/* Function shows all the people listed in the API */
+
+function showPeople(person) {
+  $('#people').append("<li class = 'person-name'><img class = 'person-picture' src = '" + person.picture + "'/><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>");
+}
+
+/* Function reloads page after POST, PATCH, DELETE */
+
+function success(res) {
+  location.reload();
+}
+
+/* Function shows all information about that person */
+
+function showInfo() {
+  $('.visible').css('display', 'none');
+  $('.showInfo').css('display', 'block');
+}
+
+/* Function shows Create Mii information */
+
+function createPerson() {
+  $('.visible').css('display', 'none');
+  $('.createPerson').css('display', 'block');
+}
+
+/* Function shows Edit Mii information */
+
+function editInfo() {
+  $('.visible').css('display', 'none');
+  $('.editPerson').css('display', 'block');
+}
+
+/* Function confirms DELETE */
+
+function confirmDelete() {
+  $('.visible').css('display', 'none');
+  $('.deletePerson').css('display', 'block');
+}
+
+/* Runs when document loads */
+
+$(document).ready(function() {
+  $('#hamburger').on("click", navigation);
+  $('#create-new').on("click", createNew);
+  $("#options").on("click", avatarOptions);
+  
   $.ajax({
   	url: url,
     success: function(res) {
-  		res.forEach(function(person){
-        $('#people').append("<li class = 'person-name'><img class = 'person-picture' src = '" + person.picture + "'/><span data-id = "+ person.id + " class = person-id>" + person.name + "</span></li>");
-      });
-      $('.person-id').on("click", function(){
+
+      /* List each person from the database */
+
+  		res.forEach(showPeople);
+
+      /* Make each entry clickable */
+
+      $('.person-id').on("click", function() {
           personId = $(this).data('id');
                     
           $('#navigation').removeClass('show');
           $('#navigation').addClass('hide');
-          $('#full-body').css({display: "block"});
+          $('#full-body').css('display', 'block');
           
-          $('#instructions').css({display: "none"});
-          $('#edit-mii').css({display: "none"});
-          $('#create-new-mii').css({display: "none"});
-          $('#edit').css({display: "block"});
-          $('#delete').css({display: "block"});
-          $('#information').css({display: "block"});
-          $('#new-person').css({display: "none"});
-          $('#post-person').css({display: "none"});
-          $('#error').css({display: "none"});
-          $('#edit-person').css({display: "none"});
-          $('#patch-person').css({display: "none"});
-          $('#remove-person').css({display: "none"});
-          $('#undo').css({display: "none"});
-          $('#delete-person').css({display: "none"});
+          showInfo();
+
+          /* GET information from the database */
 
           $.ajax({
             url: url + "/" + personId,
@@ -66,21 +114,13 @@ $(document).ready(function() {
               $('#phone').text(res.phone);
               $('#address').html(address + "<br/>" + city + ", " + state + ", " + zip);
 
+              /* Click Edit Button */
+
               $('#edit').on("click", function() {
-                $('#instructions').css({display: "none"});
-                $('#edit-mii').css({display: "block"});
-                $('#create-new-mii').css({display: "none"});
-                $('#edit').css({display: "none"});
-                $('#delete').css({display: "none"});
-                $('#information').css({display: "none"});
-                $('#new-person').css({display: "none"});
-                $('#post-person').css({display: "none"});
-                $('#error').css({display: "none"});
-                $('#edit-person').css({display: "block"});
-                $('#patch-person').css({display: "block"});
-                $('#remove-person').css({display: "none"});
-                $('#undo').css({display: "none"});
-                $('#delete-person').css({display: "none"});
+                
+                editInfo();
+
+                /* Fill in all values from database into edit form */
 
                 $('input[name=edit-picture]').filter("[value='" + res.picture + "']").attr('checked', true);
                 $('#edit-name').val(res.name);
@@ -108,6 +148,9 @@ $(document).ready(function() {
                                     + $('#edit-city').val() + ", "
                                     + $('#edit-state').val() + ", "
                                     + $('#edit-zipCode').val();
+                  
+                  /* PATCH person in database */
+
                   $.ajax({
                     url: url + "/" + personId,
                     success: function(res) {
@@ -115,55 +158,25 @@ $(document).ready(function() {
                         method: "PATCH",
                         url: url + "/" + res.id,
                         data: person,
-                        success: function (res) {
-                          location.reload();
-                        }
+                        success: success
                       });
                     }
                   });
                 });
               });
+
               $('#delete').on("click", function() {
-                $('#instructions').css({display: "none"});
-                $('#edit-mii').css({display: "none"});
-                $('#create-new-mii').css({display: "none"});
-                $('#edit').css({display: "none"});
-                $('#delete').css({display: "none"});
-                $('#information').css({display: "none"});
-                $('#new-person').css({display: "none"});
-                $('#post-person').css({display: "none"});
-                $('#error').css({display: "none"});
-                $('#edit-person').css({display: "none"});
-                $('#patch-person').css({display: "none"});
-                $('#remove-person').css({display: "block"});
-                $('#undo').css({display: "block"});
-                $('#delete-person').css({display: "block"});
-
-                $('#undo').on("click", function() {
-                  $('#instructions').css({display: "none"});
-                  $('#edit-mii').css({display: "none"});
-                  $('#create-new-mii').css({display: "none"});
-                  $('#edit').css({display: "block"});
-                  $('#delete').css({display: "block"});
-                  $('#information').css({display: "block"});
-                  $('#new-person').css({display: "none"});
-                  $('#post-person').css({display: "none"});
-                  $('#error').css({display: "none"});
-                  $('#edit-person').css({display: "none"});
-                  $('#patch-person').css({display: "none"});
-                  $('#remove-person').css({display: "none"});
-                  $('#undo').css({display: "none"});
-                  $('#delete-person').css({display: "none"});
-                });
-
+                confirmDelete();
+                $('#undo').on("click", showInfo);
                 $('#delete-person').on("click", function() {
+
+                  /* DELETE person from database */
+
                   $.ajax({
                     method: "DELETE",
                     url: url + "/" + res.id,
                     data: res,
-                    success: function (res) {
-                      location.reload();
-                    }
+                    success: success
                   });
                 });
               });
@@ -172,22 +185,7 @@ $(document).ready(function() {
   		});
     }
   });
-  $('#create-new').on("click", function() {
-    $('#instructions').css({display: "none"});
-    $('#create-new-mii').css({display: "block"});
-    $('#edit').css({display: "none"});
-    $('#delete').css({display: "none"});
-    $('#information').css({display: "none"});
-    $('#new-person').css({display: "block"});
-    $('#post-person').css({display: "block"});
-    $('#error').css({display: "none"});
-    $('#edit-person').css({display: "none"});
-    $('#patch-person').css({display: "none"});
-    $('#remove-person').css({display: "none"});
-    $('#undo').css({display: "none"});
-    $('#delete-person').css({display: "none"});
-
-  });
+  $('#create-new').on("click", createPerson);
   $('#post-person').on("click", function() {
     var person = {};
     
@@ -214,17 +212,20 @@ $(document).ready(function() {
         $('#new-state').val() != "" &&
         $('#new-zipCode').val() != "") {
 
+        /* POST person into database */
+
         $.ajax({
         method: "POST",
         url: url,
         data: person,
-        success: function (res) {
-          location.reload();
-        }
+        success: success
       });
     }
     else {
-      $('#error').css({display: "block"});
+
+      /* Show Error Message if form is incomplete */
+
+      $('#error').css('display', 'block');
     }
   });
 });
