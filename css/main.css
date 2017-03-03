@@ -97,11 +97,6 @@ html, body {
 	cursor: pointer;
 }
 
-/*#create-new:hover {
-	color: white;
-	background-color: #8f8f8f;
-}*/
-
 ul#people {
 	background-color: #8f8f8f;
 	list-style: none;
@@ -122,11 +117,6 @@ li.person-name {
 	border-top: 5px white solid;
 	cursor: pointer;
 }
-/*li.person-name:hover {
-	background-color: white;
-	color: #8f8f8f;
-	border-top: 5px #8f8f8f solid;
-}*/
 
 .person-picture, #add {
 	width: 10%;
@@ -196,10 +186,7 @@ ul#information {
 #picture1, #picture4 {
 	display: block;
 }
-#picture2, #picture5 {
-	display: none;
-}
-#picture3, #picture6 {
+#picture2, #picture3, #picture5, #picture6 {
 	display: none;
 }
 
@@ -225,17 +212,6 @@ input {
 	letter-spacing: 4px;
 	cursor: pointer;
 }
-
-/*#post-person:hover,
-#patch-person:hover,
-#edit:hover,
-#delete:hover,
-#undo:hover,
-#delete-person:hover {
-	background-color: #8f8f8f;
-	color: white;
-	border: 2px solid white;
-}*/
 
 #error {
 	display: none;
@@ -316,14 +292,11 @@ table {
 }
 
 @media(max-width: 725px) {
-	#picture1, #picture4 {
+	#picture1, #picture3, #picture4, #picture6 {
 		display: none;
 	}
 	#picture2, #picture5 {
 		display: block;
-	}
-	#picture3, #picture6 {
-		display: none;
 	}
 	#patch-person {
 		width: 24%;
@@ -331,37 +304,20 @@ table {
 }
 
 @media(max-width: 700px) {
-	#edit {
-		width: 40%;
-		margin-top: 3%;
-	}
-
-	#delete {
+	#edit, #delete {
 		width: 40%;
 		margin-top: 3%;
 	}
 }
 
 @media(max-width: 565px) {
-	#picture1, #picture4 {
-		display: none;
-	}
-	#picture2, #picture5 {
+	#picture1, #picture2, #picture4, #picture5 {
 		display: none;
 	}
 	#picture3, #picture6 {
 		display: block;
 	}
-	#post-person {
-		width: 50%;
-	}
-	#patch-person {
-		width: 50%;
-	}
-	#undo {
-		width: 50%;
-	}
-	#delete-person {
+	#post-person, #patch-person, #delete-person, #undo {
 		width: 50%;
 	}
 }

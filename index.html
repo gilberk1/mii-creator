@@ -1,3 +1,5 @@
+<!-- Mii Creator -->
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,19 +10,28 @@
 		<script type = "text/javascript" src = "js/main.js"></script>
 	</head>
 	<body>
+
+		<!-- Header -->
+
 		<div id = "header">
 			<a href = "index.html"><img id = "logo" src = "images/nintendo_mii.png"></a>
 			<img id="hamburger" src="images/Hamburger_icon.png">
 		</div>
+		
+		<!-- Navigation -->
+
 		<div id = "navigation">
 			<div id = "create-new"><img id = "add" src = "images/add.png">Create New Mii</div>
 			<ul id = "people"></ul>
 		</div>
+
+		<!-- Main Page -->
+
 		<div id = "full-body">
-			<div id = "instructions">Click menu to create a new Mii or see the existing Mii's.</div>
-			<button type = "submit" id = "edit">Edit</button>
-			<button type = "submit" id = "delete">Delete</button><br/>
-			<ul id = "information">
+			<div id = "instructions" class = "visible instructions">Click menu to create a new Mii or see the existing Mii's.</div>
+			<button type = "submit" id = "edit" class = "visible showInfo">Edit</button>
+			<button type = "submit" id = "delete" class = "visible showInfo">Delete</button><br/>
+			<ul id = "information" class = "visible showInfo">
 				<img id = "mii">
 				<li id = "name"></li>
 				<li id = "age"></li>
@@ -30,8 +41,14 @@
 				<li id = "phone"></li>
 				<li id = "address"></li>
 			</ul>
-			<div id = "create-new-mii">Create New Mii</div>
-			<form id = "new-person">
+
+			<!-- Create New Mii -->
+
+			<div id = "create-new-mii" class = "visible createPerson">Create New Mii</div>
+			<form id = "new-person" class = "visible createPerson">
+
+				<!-- Desktop Avatars -->
+
 				<div id = "picture1" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -44,6 +61,9 @@
 			            </tr>
 		          	</table></center>
 				</div>
+
+				<!-- Tablet Avatars -->
+
 				<div id = "picture2" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -58,6 +78,9 @@
 			            </tr>
 		          	</table></center>
 				</div>
+
+				<!-- Mobile Avatars -->
+
 				<div id = "picture3" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -86,9 +109,15 @@
 				<div class = "category">Zip Code: <input type = "text" name = "zipCode" id = "new-zipCode" placeholder = "zip code"></input></div><br/>
 				<div id = "error">Please fill in all the fields above.</div>
 			</form>
-			<button type = "submit" id = "post-person">Create</button>
-			<form id = "edit-person">
-				<div id = "edit-mii">Edit Mii</div>
+			<button type = "submit" id = "post-person" class = "visible createPerson">Create</button>
+			
+			<!-- Edit Mii -->
+
+			<form id = "edit-person" class = "visible editPerson">
+				<div id = "edit-mii" class = "visible editPerson">Edit Mii</div>
+
+				<!-- Desktop Avatars -->
+
 				<div id = "picture4" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -101,6 +130,9 @@
 			            </tr>
 		          	</table></center>
 				</div>
+
+				<!-- Tablet Avatars -->
+
 				<div id = "picture5" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -115,6 +147,9 @@
 			            </tr>
 		          	</table></center>
 				</div>
+
+				<!-- Mobile Avatars -->
+
 				<div id = "picture6" class = "category">Picture:
 					<center><table>
 			            <tr>
@@ -142,10 +177,13 @@
 				<div class = "category">State: <input type = "text" name = "state" id = "edit-state" placeholder = "state"></input></div>
 				<div class = "category">Zip Code: <input type = "text" name = "zipCode" id = "edit-zipCode" placeholder = "zip code"></input></div>
 			</form>
-			<button type = "submit" id = "patch-person">Save</button>
-			<div id = "remove-person">Are you sure you would like to delete this person?
-				<button type = "submit" id = "undo">No</button>
-				<button type = "submit" id = "delete-person">Yes</button>
+			<button type = "submit" id = "patch-person" class = "visible editPerson">Save</button>
+			
+			<!-- Delete Mii -->
+
+			<div id = "remove-person" class = "visible deletePerson">Are you sure you would like to delete this person?
+				<button type = "submit" id = "undo" class = "visible deletePerson">No</button>
+				<button type = "submit" id = "delete-person" class = "visible deletePerson">Yes</button>
 			</div>
 		</div>
 	</body>
